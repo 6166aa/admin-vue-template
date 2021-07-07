@@ -1,0 +1,122 @@
+.login
+  height 100%
+  width 100%
+  min-width 690px
+  min-height  400px
+  background linear-gradient(-90deg, #e3ffe7 0%, #d9e7ff 100%)
+  display flex
+  justify-content center
+  align-items center
+
+.form
+  display flex
+  align-items center
+
+  .left
+    width 330px
+    height @width
+    background white
+    padding 1.5em
+
+    .title
+      color #e2e2e5
+      font-size 2.2em
+      font-family 'Inter UI', sans-serif
+
+    img
+      margin-top 1em
+      display block
+      width 100%
+
+  .right
+    padding 0em 2em
+    width 340px
+    height @width * 1.1
+    background-color #474a59
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+
+    .form-item
+      position relative
+      margin-top 3.2em
+
+      .placeholder
+        color #c2c2c5
+        transition 0.3s
+        position absolute
+        top 50%
+        pointer-events none
+        transform translateY(-50%)
+
+      .border-line
+        width 100%
+        height 3px
+        background #f2f2f2
+        // background linear-gradient(45deg, #ff01e5, #ff0021)
+
+      // 清除默认样式
+      input, input:focus, input:focus-visible, input:-webkit-autofill, input:-webkit-autofill:focus, input:-internal-autofill-selected
+        width 100%
+        outline none !important
+        border 0 !important
+        background-color transparent !important
+        color #f2f2f2
+        font-size 20px
+        height 30px
+        line-height 30px
+        transform-origin left
+
+      input:focus+.placeholder, input:valid+.placeholder
+        top 0px
+        color #ff0182
+        transform translateY(-120%) scale(0.9)
+
+        &+.border-line
+          background linear-gradient(45deg, #ff01e5, #ff0021)
+
+    button
+      position relative
+      margin-top 3em
+      cursor pointer
+      border-radius 0.28em
+      background transparent
+      border 3px solid #f2f2f2
+      color #f2f2f2
+      font-size 20px
+      padding 0.3em 0
+      outline none !important
+      transition 0.5s ease
+      overflow hidden
+      width 80%
+      z-index 2
+      user-select none
+
+      &::before
+        content ''
+        width 0
+        height 0
+        -webkit-transform rotate(360deg)
+        border-style solid
+        border-width 0 0 0 0
+        transition 0.5s ease
+        border-color transparent transparent transparent #ff0182
+        position absolute
+        bottom 0
+        left 0
+        z-index -1
+
+      &::after 
+        @extends button::before
+        border-color transparent #ff0182 transparent transparent
+        top 0
+        right 0
+        bottom auto
+        left auto
+      &:hover
+        color #f2f2f2
+        border-color #ff0182
+
+        &::after, &::before
+          border-width 60px 402.5px
